@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚁 Drone Simulation</h1>
+            <div class="mode-indicator" id="modeIndicator">Manual Mode Active</div>
+        </div>
+        
+        <div class="main-content">
+            <div class="canvas-container">
+                <canvas id="droneCanvas" width="800" height="600"></canvas>
+                <div class="controls-hint">
+                    <div><strong>Manual Mode:</strong> Press <kbd>Enter</kbd> | WASD or Arrow Keys to control</div>
+                    <div><strong>Autonomous Mode:</strong> Press <kbd>Q</kbd></div>
+                </div>
+            </div>
+            
+            <div class="status-panel">
+                <h3>Status Panel</h3>
+                <div class="status-item">
+                    <span class="label">Mode:</span>
+                    <span class="value" id="modeStatus">Manual</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Position:</span>
+                    <span class="value" id="positionStatus">X: 0, Y: 0</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Speed:</span>
+                    <span class="value" id="speedStatus">0.0</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Velocity:</span>
+                    <span class="value" id="velocityStatus">0.0, 0.0</span>
+                </div>
+                <div class="status-item">
+                    <span class="label">Orientation:</span>
+                    <span class="value" id="orientationStatus">0°</span>
+                </div>
+                <div class="status-item autonomous-info" id="autonomousInfo" style="display: none;">
+                    <span class="label">Current Waypoint:</span>
+                    <span class="value" id="waypointStatus">-</span>
+                </div>
+                <div class="status-item autonomous-info" id="autonomousObstacles" style="display: none;">
+                    <span class="label">Obstacles Detected:</span>
+                    <span class="value" id="obstaclesStatus">0</span>
+                </div>
+                <div class="status-item autonomous-info" id="autonomousProgress" style="display: none;">
+                    <span class="label">Progress:</span>
+                    <span class="value" id="progressStatus">0%</span>
+                </div>
+                
+                <div class="legend">
+                    <h4>Legend</h4>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4CAF50;"></div>
+                        <span>Drone</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #f44336;"></div>
+                        <span>Obstacles</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #2196F3;"></div>
+                        <span>Goal</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: rgba(255, 255, 0, 0.3);"></div>
+                        <span>Path (Autonomous)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/pathfinding.js"></script>
+    <script src="js/drone.js"></script>
+    <script src="js/obstacles.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
